@@ -1,0 +1,3 @@
+/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles/rebuild_cache.dir
+/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles/edit_cache.dir
+/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles/chess.dir
