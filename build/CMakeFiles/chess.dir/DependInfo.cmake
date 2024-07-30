@@ -5,7 +5,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/orangepi/Desktop/myproject_cpp/chess/src/capture.cpp" "/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles/chess.dir/src/capture.cpp.o"
+  "/home/orangepi/Desktop/myproject_cpp/chess/src/game.cpp" "/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles/chess.dir/src/game.cpp.o"
   "/home/orangepi/Desktop/myproject_cpp/chess/src/main.cpp" "/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles/chess.dir/src/main.cpp.o"
+  "/home/orangepi/Desktop/myproject_cpp/chess/src/move.cpp" "/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles/chess.dir/src/move.cpp.o"
   "/home/orangepi/Desktop/myproject_cpp/chess/src/rectget.cpp" "/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles/chess.dir/src/rectget.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

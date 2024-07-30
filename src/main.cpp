@@ -9,7 +9,9 @@
 #include <unistd.h>
 #include "capture.h"
 #include "rectget.h"
+#include "move.h"
 #include <pthread.h>
+#include <time.h>
 
 using namespace cv;
 using namespace ml;
@@ -26,8 +28,8 @@ pthread_mutex_t msthreadmutex;
 char missionflag_thread = '0';
 char missionflag_main = '0';
 // 线程的运行函数
-// 接收32发送的数据
-void* uart_rx(void* args)
+// 接收串口屏发送的数据
+void* tft_rx(void* args)
 {
 	int* fd = NULL;
 	fd=(int*)args;
@@ -39,16 +41,22 @@ void* uart_rx(void* args)
 			cnt = 0; 
 			memset(uartbuffer0,0,sizeof(uartbuffer0));
 			uartbuffer0[0] = serialGetchar(*fd);
-			if(uartbuffer0[0] == 'b')
+			if(uartbuffer0[0] == 'm')
 			{
 				while(serialDataAvail(*fd))
 				{
 					cnt++;
 					uartbuffer0[cnt] = serialGetchar(*fd);
+					//cout << "receive " << uartbuffer0[cnt] << endl;
 				}
 				cout << "receive message: " <<uartbuffer0 << endl;
+				missionFlag = uartbuffer0[1]-'0';
+				missionChess = uartbuffer0[3]-'0';
+				rect_code = uartbuffer0[5]-'0';
+				ischessput = uartbuffer0[7]-'0';	
 			}
 		}
+		// sleep(5);
 	}
     return 0;
 }
@@ -59,13 +67,21 @@ int main()
 	cout << "OpenCV version : " << CV_VERSION << std::endl;
 	//初始化串口
 	wiringPiSetup();
-	int fd = serialOpen("/dev/ttyS0",115200); //打开串口0
+	int fd = serialOpen("/dev/ttyS4",9600); //打开串口4
 	while(fd==-1)
 	{
 		cout << "uartopen failed" << endl;
-		fd = serialOpen("/dev/ttyS0",115200);
+		fd = serialOpen("/dev/ttyS4",9600);
+	}
+
+	int fd2 = serialOpen("/dev/ttyS0",115200); //打开串口0
+	while(fd2==-1)
+	{
+		cout << "uartopen failed" << endl;
+		fd2 = serialOpen("/dev/ttyS0",115200);
 	}
 	int* myuart1=&fd;
+
 	//初始化摄像头
 	VideoCapture capture(0,CAP_V4L2);
 	if (!capture.isOpened()) 
@@ -77,12 +93,12 @@ int main()
 	// 创建并打开线程
 	pthread_t tid1;
 
-	int ret = pthread_create(&tid1, NULL, uart_rx, myuart1);
+	int ret = pthread_create(&tid1, NULL, tft_rx, myuart1);
 	if (ret != 0)
 	{
 		cout << "pthread_create error: error_code=" << ret << endl;
 	}
-	
+
 	// trackbarinrange(capture);
 	// shoot(capture);
 	// capcalibrate(capture);
@@ -98,21 +114,16 @@ int main()
 	Rect dst_rect[9];
 	//9个区块棋子状态
 	int chessmap[9];
-	//读60张图自动调节白平衡
-	for(int i=0;i<60;i++)
-	{
-		capture >> frame; 
-	}
+	
 	while(1)
 	{
-		capture >> frame; 
-		while(frame.empty())
-		{
-			capture >> frame; 
-		}
-		undistort(frame,frame_undistort,cameraMatrix,distCoeffs);
-		bool bgsucess = blocklocationget(frame_undistort,dst_rect);
-		
+		// capture >> frame; 
+		// while(frame.empty())
+		// {
+		// 	capture >> frame; 
+		// }
+		// undistort(frame,frame_undistort,cameraMatrix,distCoeffs);
+		// bool bgsucess = blocklocationget(frame_undistort,dst_rect);
 		// if(bgsucess)
 		// {
 		// 	waitKey(10000);
@@ -123,54 +134,7 @@ int main()
 		// 	undistort(frame,frame_undistort,cameraMatrix,distCoeffs);
 		// 	chessget(frame_undistort,dst_rect,chessmap);
 		// }
-		
-
-		// frame_undistort = frame.clone();
-	
-		// Point2f AffinePoints0[4] = { Point2f(knn_result[0].x, knn_result[0].y), 
-		// Point2f(knn_result[3].x, knn_result[3].y), 
-		// Point2f(knn_result[12].x, knn_result[12].y), 
-		// Point2f(knn_result[15].x, knn_result[15].y) };
-		// Point2f AffinePoints1[4] = { Point2f(150+80, 150), 
-		// Point2f(150+80, 630), 
-		// Point2f(630+80, 150), 
-		// Point2f(630+80, 630) };
-		// Trans = getPerspectiveTransform(AffinePoints0, AffinePoints1);
-		// warpPerspective(frame_undistort, frame_warp, Trans, Size(frame_undistort.cols-250, frame_undistort.rows));
-
-
-
-		char message[50];
-		if(missionflag_main!='0')
-		{
-			cout << "missionflag_main " << missionflag_main << endl;
-			strcpy(message,"0");
-			switch(missionflag_main)
-			{
-				case '1':
-				{
-					//blocklocationget(frame,dst_rect);
-					break;
-				}
-				case '2':
-				{
-					break;
-				}
-				case '3':
-				{
-					break;
-				}
-				case '4':
-				{
-					break;
-				}
-				case '5':
-				{
-					break;
-				}
-			}
-			missionflag_main = '0';
-		}
+		missionStart(capture,fd2);
 
 
 
@@ -200,10 +164,10 @@ int main()
 
 // 	// Four corners of the book in destination image. 4个对应点
 // 	vector<Point2f> pts_dst;
-// 	pts_dst.push_back(Point2f(1899-79, 1905));
-// 	pts_dst.push_back(Point2f(1899-79, 880));
-// 	pts_dst.push_back(Point2f(-79, 1945));
-// 	pts_dst.push_back(Point2f(-79, 925));
+// 	pts_dst.push_back(Point2f(1899, 1905));
+// 	pts_dst.push_back(Point2f(1899, 880));
+// 	pts_dst.push_back(Point2f(0, 1945));
+// 	pts_dst.push_back(Point2f(0, 925));
 
 
 

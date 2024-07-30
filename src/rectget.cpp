@@ -20,13 +20,13 @@ int blocklocationget(Mat& frame_undistort,Rect dstrect[9])
     GaussianBlur(frame,frame_blur,Size(5,5),1);
     //inrange
     cvtColor(frame, frame_HSV, COLOR_BGR2HSV);
-	inRange(frame_HSV, Scalar(0, 0, 83), Scalar(255, 255, 255), frame_inRange);
+	inRange(frame_HSV, Scalar(0, 0, 87), Scalar(255, 255, 255), frame_inRange);
     Mat kernel = getStructuringElement(MORPH_RECT, Size(3, 3));
     erode(frame_inRange,frame_inRange,kernel,Point(-1,-1),2);
     dilate(frame_inRange,frame_inRange,kernel,Point(-1,-1),2);
    
 	
-	imshow("frame_inRange", frame_inRange);
+	//imshow("frame_inRange", frame_inRange);
     waitKey(1);
     //轮廓提取求roi
     vector<vector<Point>> contours;
@@ -43,7 +43,7 @@ int blocklocationget(Mat& frame_undistort,Rect dstrect[9])
             RotatedRect minrect = minAreaRect(contours[i]);    //最小外接矩形
             int area = contourArea(contours[i]);//计算轮廓面积
             float hpw = minrect.size.height / minrect.size.width;
-            cout << area << endl;
+            //cout << area << endl;
             if(area>9000&&area<17000&&hpw<1.2&&hpw>0.2)
             {
                 //cout << "area :" << area << endl;
@@ -277,8 +277,9 @@ void chessget(Mat& frame,Rect dstrect[9],int chessmap [9])
         Mat frame_inRange;
         cvtColor(frame_roi, frame_HSV, COLOR_BGR2HSV);
         //黑色阈值
-        inRange(frame_HSV, Scalar(0, 0, 72), Scalar(255, 255, 255), frame_inRange);
-        imshow("frame_inRange",frame_inRange);
+        inRange(frame_HSV, Scalar(0, 0, 87), Scalar(255, 255, 255), frame_inRange);
+        // imshow("frame_inRange",frame_inRange);
+        // waitKey(1000);
         int blackblock = 0;
         for(int i = 0;i<frame_inRange.rows;i++)
         {
@@ -291,7 +292,7 @@ void chessget(Mat& frame,Rect dstrect[9],int chessmap [9])
             }
         }
         //白色阈值
-        inRange(frame_HSV, Scalar(0, 0, 0), Scalar(255, 255, 230), frame_inRange);
+        inRange(frame_HSV, Scalar(0, 71, 0), Scalar(255, 255, 174), frame_inRange);
         int whiteblock = 0;
         for(int i = 0;i<frame_inRange.rows;i++)
         {
@@ -303,11 +304,11 @@ void chessget(Mat& frame,Rect dstrect[9],int chessmap [9])
                 }
             }
         }
-        if(blackblock>=1800)
+        if(blackblock>=600)
         {
             chessmap[i]=1;//黑色是1
         }
-        else if(whiteblock>=1800)
+        else if(whiteblock>=600)
         {
             chessmap[i]=2;//白色是2
         }
