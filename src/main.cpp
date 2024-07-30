@@ -84,7 +84,7 @@ int main()
 	}
 	
 	// trackbarinrange(capture);
-	 shoot(capture);
+	// shoot(capture);
 	// capcalibrate(capture);
 
 	Mat frame;
@@ -112,21 +112,24 @@ int main()
 		}
 		undistort(frame,frame_undistort,cameraMatrix,distCoeffs);
 		bool bgsucess = blocklocationget(frame_undistort,dst_rect);
-		// if(bgsucess)
-		// {
-		// 	//单应性矩阵
-		// 	Mat Hm = Mat(3, 3, CV_32FC1, H);
-		// 	Mat src_pm = Mat::zeros(3,1,CV_32FC1);
-		// 	Mat dst_pm = Mat::zeros(3,1,CV_32FC1);
-		// 	// src_pm.at<float>(0,0) = (dst_rect[5].tl().x+dst_rect[5].br().x)/2;
-		// 	// src_pm.at<float>(0,1) = (dst_rect[5].tl().y+dst_rect[5].br().y)/2;
-		// 	// src_pm.at<float>(0,2) = 1;
-		// 	src_pm.at<float>(0,0) = 137;
-		// 	src_pm.at<float>(0,1) = 171;
-		// 	src_pm.at<float>(0,2) = 1;
-		// 	dst_pm = Hm*src_pm;
-		// 	cout << dst_pm << endl;
-		// }
+		if(bgsucess)
+		{
+			//单应性矩阵
+			Mat Hm = Mat(3, 3, CV_32FC1, H);
+			Mat src_pm = Mat::zeros(3,1,CV_32FC1);
+			Mat dst_pm = Mat::zeros(3,1,CV_32FC1);
+			for(int i=0;i<9;i++)
+			{
+				src_pm.at<float>(0,0) = (dst_rect[i].tl().x+dst_rect[i].br().x)/2;
+				src_pm.at<float>(0,1) = (dst_rect[i].tl().y+dst_rect[i].br().y)/2;
+				src_pm.at<float>(0,2) = 1;
+				// src_pm.at<float>(0,0) = 261;
+				// src_pm.at<float>(0,1) = 186;
+				// src_pm.at<float>(0,2) = 1;
+				dst_pm = Hm*src_pm;
+				cout << dst_pm << endl;
+			}
+		}
 		// if(bgsucess)
 		// {
 		// 	waitKey(10000);
@@ -206,36 +209,26 @@ int main()
 // {
 
 // 	vector<Point2f> pts_src;
-// 	pts_src.push_back(Point2f(137, 109));
-// 	pts_src.push_back(Point2f(137, 171));
-// 	pts_src.push_back(Point2f(135, 234));
-// 	pts_src.push_back(Point2f(134, 295));
-// 	pts_src.push_back(Point2f(133, 358));
-// 	pts_src.push_back(Point2f(604, 112));
-// 	pts_src.push_back(Point2f(604, 175));
-// 	pts_src.push_back(Point2f(604, 239));
-// 	pts_src.push_back(Point2f(603, 302));
-// 	pts_src.push_back(Point2f(603, 366));
+// 	pts_src.push_back(Point2f(261, 186));
+// 	pts_src.push_back(Point2f(264, 540));
+// 	pts_src.push_back(Point2f(930, 205));
+// 	pts_src.push_back(Point2f(936, 558));
+
 
 // 	// Four corners of the book in destination image. 4个对应点
 // 	vector<Point2f> pts_dst;
-// 	pts_dst.push_back(Point2f(1899, 1905));
-// 	pts_dst.push_back(Point2f(1899, 1650));
-// 	pts_dst.push_back(Point2f(1899, 1385));
-// 	pts_dst.push_back(Point2f(1899, 1135));
-// 	pts_dst.push_back(Point2f(1899, 880));
-// 	pts_dst.push_back(Point2f(0, 1945));
-// 	pts_dst.push_back(Point2f(0, 1690));
-// 	pts_dst.push_back(Point2f(0, 1435));
-// 	pts_dst.push_back(Point2f(0, 1180));
-// 	pts_dst.push_back(Point2f(0, 925));
+// 	pts_dst.push_back(Point2f(1899-79, 1905));
+// 	pts_dst.push_back(Point2f(1899-79, 880));
+// 	pts_dst.push_back(Point2f(-79, 1945));
+// 	pts_dst.push_back(Point2f(-79, 925));
+
 
 
 // 	Mat h = findHomography(pts_src, pts_dst);
 // 	Point3f dst_p;
 // 	Point3f src_p;
-// 	src_p.x = 604;
-// 	src_p.y = 112;
+// 	src_p.x = 261;
+// 	src_p.y = 186;
 // 	src_p.z = 1;
 
 // 	Mat src_pm=Mat::zeros(3,1,CV_64FC1);
@@ -245,6 +238,9 @@ int main()
 // 	src_pm.at<double>(Point(2,0))=src_p.z;
 // 	dst_pm = h*src_pm;
 // 	cout << h << endl;
+// 	cout << dst_pm << endl;
+
 // 	waitKey(0);
 // 	return 0;
 // }
+

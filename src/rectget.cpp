@@ -26,7 +26,7 @@ int blocklocationget(Mat& frame_undistort,Rect dstrect[9])
     dilate(frame_inRange,frame_inRange,kernel,Point(-1,-1),2);
    
 	
-	//imshow("frame_inRange", frame_inRange);
+	imshow("frame_inRange", frame_inRange);
     waitKey(1);
     //轮廓提取求roi
     vector<vector<Point>> contours;
@@ -325,7 +325,6 @@ void Torealcoordinate(Point2f srcp,Point2f dstp)
 {
     //单应性矩阵
 	Mat Hm = Mat(3, 3, CV_32FC1, H);
-
     Mat src_pm = Mat::zeros(3,1,CV_32FC1);
     Mat dst_pm = Mat::zeros(3,1,CV_32FC1);
     src_pm.at<float>(0,0) = srcp.x;

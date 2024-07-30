@@ -24,10 +24,6 @@ opencv2/opencv.hpp
 math.h
 ../include/math.h
 
-/home/orangepi/Desktop/myproject_cpp/chess/src/capture.cpp
-capture.h
-/home/orangepi/Desktop/myproject_cpp/chess/src/capture.h
-
 /home/orangepi/Desktop/myproject_cpp/chess/src/main.cpp
 iostream
 -
