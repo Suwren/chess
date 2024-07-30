@@ -112,24 +112,7 @@ int main()
 		}
 		undistort(frame,frame_undistort,cameraMatrix,distCoeffs);
 		bool bgsucess = blocklocationget(frame_undistort,dst_rect);
-		if(bgsucess)
-		{
-			//单应性矩阵
-			Mat Hm = Mat(3, 3, CV_32FC1, H);
-			Mat src_pm = Mat::zeros(3,1,CV_32FC1);
-			Mat dst_pm = Mat::zeros(3,1,CV_32FC1);
-			for(int i=0;i<9;i++)
-			{
-				src_pm.at<float>(0,0) = (dst_rect[i].tl().x+dst_rect[i].br().x)/2;
-				src_pm.at<float>(0,1) = (dst_rect[i].tl().y+dst_rect[i].br().y)/2;
-				src_pm.at<float>(0,2) = 1;
-				// src_pm.at<float>(0,0) = 261;
-				// src_pm.at<float>(0,1) = 186;
-				// src_pm.at<float>(0,2) = 1;
-				dst_pm = Hm*src_pm;
-				cout << dst_pm << endl;
-			}
-		}
+		
 		// if(bgsucess)
 		// {
 		// 	waitKey(10000);
