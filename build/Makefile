@@ -231,6 +231,33 @@ src/move.cpp.s:
 	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/move.cpp.s
 .PHONY : src/move.cpp.s
 
+src/picture.o: src/picture.cpp.o
+
+.PHONY : src/picture.o
+
+# target to build an object file
+src/picture.cpp.o:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/picture.cpp.o
+.PHONY : src/picture.cpp.o
+
+src/picture.i: src/picture.cpp.i
+
+.PHONY : src/picture.i
+
+# target to preprocess a source file
+src/picture.cpp.i:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/picture.cpp.i
+.PHONY : src/picture.cpp.i
+
+src/picture.s: src/picture.cpp.s
+
+.PHONY : src/picture.s
+
+# target to generate assembly for a file
+src/picture.cpp.s:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/picture.cpp.s
+.PHONY : src/picture.cpp.s
+
 src/rectget.o: src/rectget.cpp.o
 
 .PHONY : src/rectget.o
@@ -279,6 +306,9 @@ help:
 	@echo "... src/move.o"
 	@echo "... src/move.i"
 	@echo "... src/move.s"
+	@echo "... src/picture.o"
+	@echo "... src/picture.i"
+	@echo "... src/picture.s"
 	@echo "... src/rectget.o"
 	@echo "... src/rectget.i"
 	@echo "... src/rectget.s"

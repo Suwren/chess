@@ -60,67 +60,80 @@ include CMakeFiles/chess.dir/flags.make
 CMakeFiles/chess.dir/src/capture.cpp.o: CMakeFiles/chess.dir/flags.make
 CMakeFiles/chess.dir/src/capture.cpp.o: ../src/capture.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/chess.dir/src/capture.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/capture.cpp.o -c /home/orangepi/Desktop/myproject_cpp/chess/src/capture.cpp
+	/usr/bin/aarch64-linux-gnu-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/capture.cpp.o -c /home/orangepi/Desktop/myproject_cpp/chess/src/capture.cpp
 
 CMakeFiles/chess.dir/src/capture.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chess.dir/src/capture.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/orangepi/Desktop/myproject_cpp/chess/src/capture.cpp > CMakeFiles/chess.dir/src/capture.cpp.i
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/orangepi/Desktop/myproject_cpp/chess/src/capture.cpp > CMakeFiles/chess.dir/src/capture.cpp.i
 
 CMakeFiles/chess.dir/src/capture.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chess.dir/src/capture.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/orangepi/Desktop/myproject_cpp/chess/src/capture.cpp -o CMakeFiles/chess.dir/src/capture.cpp.s
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/orangepi/Desktop/myproject_cpp/chess/src/capture.cpp -o CMakeFiles/chess.dir/src/capture.cpp.s
 
 CMakeFiles/chess.dir/src/game.cpp.o: CMakeFiles/chess.dir/flags.make
 CMakeFiles/chess.dir/src/game.cpp.o: ../src/game.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/chess.dir/src/game.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/game.cpp.o -c /home/orangepi/Desktop/myproject_cpp/chess/src/game.cpp
+	/usr/bin/aarch64-linux-gnu-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/game.cpp.o -c /home/orangepi/Desktop/myproject_cpp/chess/src/game.cpp
 
 CMakeFiles/chess.dir/src/game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chess.dir/src/game.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/orangepi/Desktop/myproject_cpp/chess/src/game.cpp > CMakeFiles/chess.dir/src/game.cpp.i
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/orangepi/Desktop/myproject_cpp/chess/src/game.cpp > CMakeFiles/chess.dir/src/game.cpp.i
 
 CMakeFiles/chess.dir/src/game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chess.dir/src/game.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/orangepi/Desktop/myproject_cpp/chess/src/game.cpp -o CMakeFiles/chess.dir/src/game.cpp.s
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/orangepi/Desktop/myproject_cpp/chess/src/game.cpp -o CMakeFiles/chess.dir/src/game.cpp.s
 
 CMakeFiles/chess.dir/src/main.cpp.o: CMakeFiles/chess.dir/flags.make
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/chess.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/main.cpp.o -c /home/orangepi/Desktop/myproject_cpp/chess/src/main.cpp
+	/usr/bin/aarch64-linux-gnu-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/main.cpp.o -c /home/orangepi/Desktop/myproject_cpp/chess/src/main.cpp
 
 CMakeFiles/chess.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chess.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/orangepi/Desktop/myproject_cpp/chess/src/main.cpp > CMakeFiles/chess.dir/src/main.cpp.i
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/orangepi/Desktop/myproject_cpp/chess/src/main.cpp > CMakeFiles/chess.dir/src/main.cpp.i
 
 CMakeFiles/chess.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chess.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/orangepi/Desktop/myproject_cpp/chess/src/main.cpp -o CMakeFiles/chess.dir/src/main.cpp.s
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/orangepi/Desktop/myproject_cpp/chess/src/main.cpp -o CMakeFiles/chess.dir/src/main.cpp.s
 
 CMakeFiles/chess.dir/src/move.cpp.o: CMakeFiles/chess.dir/flags.make
 CMakeFiles/chess.dir/src/move.cpp.o: ../src/move.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/chess.dir/src/move.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/move.cpp.o -c /home/orangepi/Desktop/myproject_cpp/chess/src/move.cpp
+	/usr/bin/aarch64-linux-gnu-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/move.cpp.o -c /home/orangepi/Desktop/myproject_cpp/chess/src/move.cpp
 
 CMakeFiles/chess.dir/src/move.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chess.dir/src/move.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/orangepi/Desktop/myproject_cpp/chess/src/move.cpp > CMakeFiles/chess.dir/src/move.cpp.i
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/orangepi/Desktop/myproject_cpp/chess/src/move.cpp > CMakeFiles/chess.dir/src/move.cpp.i
 
 CMakeFiles/chess.dir/src/move.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chess.dir/src/move.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/orangepi/Desktop/myproject_cpp/chess/src/move.cpp -o CMakeFiles/chess.dir/src/move.cpp.s
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/orangepi/Desktop/myproject_cpp/chess/src/move.cpp -o CMakeFiles/chess.dir/src/move.cpp.s
+
+CMakeFiles/chess.dir/src/picture.cpp.o: CMakeFiles/chess.dir/flags.make
+CMakeFiles/chess.dir/src/picture.cpp.o: ../src/picture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/chess.dir/src/picture.cpp.o"
+	/usr/bin/aarch64-linux-gnu-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/picture.cpp.o -c /home/orangepi/Desktop/myproject_cpp/chess/src/picture.cpp
+
+CMakeFiles/chess.dir/src/picture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chess.dir/src/picture.cpp.i"
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/orangepi/Desktop/myproject_cpp/chess/src/picture.cpp > CMakeFiles/chess.dir/src/picture.cpp.i
+
+CMakeFiles/chess.dir/src/picture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chess.dir/src/picture.cpp.s"
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/orangepi/Desktop/myproject_cpp/chess/src/picture.cpp -o CMakeFiles/chess.dir/src/picture.cpp.s
 
 CMakeFiles/chess.dir/src/rectget.cpp.o: CMakeFiles/chess.dir/flags.make
 CMakeFiles/chess.dir/src/rectget.cpp.o: ../src/rectget.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/chess.dir/src/rectget.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/rectget.cpp.o -c /home/orangepi/Desktop/myproject_cpp/chess/src/rectget.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/chess.dir/src/rectget.cpp.o"
+	/usr/bin/aarch64-linux-gnu-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/rectget.cpp.o -c /home/orangepi/Desktop/myproject_cpp/chess/src/rectget.cpp
 
 CMakeFiles/chess.dir/src/rectget.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chess.dir/src/rectget.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/orangepi/Desktop/myproject_cpp/chess/src/rectget.cpp > CMakeFiles/chess.dir/src/rectget.cpp.i
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/orangepi/Desktop/myproject_cpp/chess/src/rectget.cpp > CMakeFiles/chess.dir/src/rectget.cpp.i
 
 CMakeFiles/chess.dir/src/rectget.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chess.dir/src/rectget.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/orangepi/Desktop/myproject_cpp/chess/src/rectget.cpp -o CMakeFiles/chess.dir/src/rectget.cpp.s
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/orangepi/Desktop/myproject_cpp/chess/src/rectget.cpp -o CMakeFiles/chess.dir/src/rectget.cpp.s
 
 # Object files for target chess
 chess_OBJECTS = \
@@ -128,6 +141,7 @@ chess_OBJECTS = \
 "CMakeFiles/chess.dir/src/game.cpp.o" \
 "CMakeFiles/chess.dir/src/main.cpp.o" \
 "CMakeFiles/chess.dir/src/move.cpp.o" \
+"CMakeFiles/chess.dir/src/picture.cpp.o" \
 "CMakeFiles/chess.dir/src/rectget.cpp.o"
 
 # External object files for target chess
@@ -137,6 +151,7 @@ chess: CMakeFiles/chess.dir/src/capture.cpp.o
 chess: CMakeFiles/chess.dir/src/game.cpp.o
 chess: CMakeFiles/chess.dir/src/main.cpp.o
 chess: CMakeFiles/chess.dir/src/move.cpp.o
+chess: CMakeFiles/chess.dir/src/picture.cpp.o
 chess: CMakeFiles/chess.dir/src/rectget.cpp.o
 chess: CMakeFiles/chess.dir/build.make
 chess: /usr/local/lib/libopencv_gapi.so.4.10.0
@@ -194,7 +209,7 @@ chess: /usr/local/lib/libopencv_photo.so.4.10.0
 chess: /usr/local/lib/libopencv_imgproc.so.4.10.0
 chess: /usr/local/lib/libopencv_core.so.4.10.0
 chess: CMakeFiles/chess.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable chess"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/orangepi/Desktop/myproject_cpp/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable chess"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/chess.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

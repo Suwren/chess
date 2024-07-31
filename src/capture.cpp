@@ -20,7 +20,7 @@ void capinit(VideoCapture& capture)
     capture.set(CAP_PROP_FOURCC,VideoWriter::fourcc('M','J','P','G'));
     capture.set(CAP_PROP_AUTO_WB,0);
 	capture.set(CAP_PROP_WB_TEMPERATURE,5000);
-    //capture.set(CAP_PROP_AUTO_EXPOSURE,1);
+    //capture.set(CAP_PROP_AUTO_EXPOSURE,0);
 	capture.set(CAP_PROP_FRAME_WIDTH ,Frame_WIDTH);
 	capture.set(CAP_PROP_FRAME_HEIGHT ,Frame_HEIGHT);
 	printf("CAP_WIDTH = %f\r\n" , capture.get(CAP_PROP_FRAME_WIDTH));
@@ -31,7 +31,7 @@ void capinit(VideoCapture& capture)
     printf("饱和度 = %f\r\n" , capture.get(CAP_PROP_SATURATION));
     printf("色相 = %f\r\n" , capture.get(CAP_PROP_HUE));
     printf("增益 = %f\r\n" , capture.get(CAP_PROP_GAIN));
-    //capture.set(CAP_PROP_EXPOSURE ,113);
+    //capture.set(CAP_PROP_EXPOSURE ,150);
     printf("曝光 = %f\r\n" , capture.get(CAP_PROP_EXPOSURE));
 }
 //拍照
@@ -44,16 +44,18 @@ void shoot(VideoCapture &capture)
 
     Mat frame;
 	Mat frame_undistort;
+	Mat frame_gray;
+	Mat frame_inRange;
     int cnt=0;
 	char imgname[50];
     while (true)
 	{
 		capture >> frame; 
 		undistort(frame,frame_undistort,cameraMatrix,distCoeffs);
-		imshow("frame", frame);
 		imshow("frame_undistort", frame_undistort);
-
-
+		cvtColor(frame_undistort,frame_gray,CV_BGR2GRAY);
+		threshold(frame_gray, frame_inRange, 125, 255, THRESH_OTSU);
+		imshow("frame_inRange", frame_inRange);
 		char key = waitKey(1);
 		if(key=='s')
 		{

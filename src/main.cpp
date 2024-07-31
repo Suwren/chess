@@ -55,6 +55,13 @@ void* tft_rx(void* args)
 				rect_code = uartbuffer0[5]-'0';
 				ischessput = uartbuffer0[7]-'0';	
 			}
+			else if(uartbuffer0[0] == 'e')
+			{
+				if(serialGetchar(*fd) == '1')
+				{
+					exitinput = 1;
+				}
+			}
 		}
 		// sleep(5);
 	}
@@ -134,7 +141,7 @@ int main()
 		// 	undistort(frame,frame_undistort,cameraMatrix,distCoeffs);
 		// 	chessget(frame_undistort,dst_rect,chessmap);
 		// }
-		missionStart(capture,fd2);
+		missionStart(capture,fd2,fd);
 
 
 

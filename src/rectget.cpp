@@ -44,7 +44,7 @@ int blocklocationget(Mat& frame_undistort,Rect dstrect[9])
             int area = contourArea(contours[i]);//计算轮廓面积
             float hpw = minrect.size.height / minrect.size.width;
             //cout << area << endl;
-            if(area>9000&&area<17000&&hpw<1.2&&hpw>0.2)
+            if(area>9000&&area<20000&&hpw<1.2&&hpw>0.2)
             {
                 //cout << "area :" << area << endl;
                 //获取最小外接矩形
@@ -71,7 +71,7 @@ int blocklocationget(Mat& frame_undistort,Rect dstrect[9])
     if(result.size()==9)
     {
         ordermyrect(framedraw,result,dstrect);
-        imshow("framedraw",framedraw);
+        //imshow("framedraw",framedraw);
         return 1;
     }
     else
@@ -274,12 +274,15 @@ void chessget(Mat& frame,Rect dstrect[9],int chessmap [9])
         Mat frame_roi = frame(dstrect[i]);
         resize(frame_roi,frame_roi,Size(50,50));
         Mat frame_HSV;
+        Mat frame_gray;
         Mat frame_inRange;
         cvtColor(frame_roi, frame_HSV, COLOR_BGR2HSV);
+        cvtColor(frame_roi, frame_gray, COLOR_BGR2GRAY);
         //黑色阈值
         inRange(frame_HSV, Scalar(0, 0, 87), Scalar(255, 255, 255), frame_inRange);
-        // imshow("frame_inRange",frame_inRange);
-        // waitKey(1000);
+        //threshold(frame_gray, frame_inRange, 125, 255, THRESH_OTSU);
+        //imshow("frame_inRange",frame_inRange);
+        //waitKey(1000);
         int blackblock = 0;
         for(int i = 0;i<frame_inRange.rows;i++)
         {
@@ -292,7 +295,10 @@ void chessget(Mat& frame,Rect dstrect[9],int chessmap [9])
             }
         }
         //白色阈值
-        inRange(frame_HSV, Scalar(0, 71, 0), Scalar(255, 255, 174), frame_inRange);
+        inRange(frame_HSV, Scalar(0, 60, 0), Scalar(255, 255, 234), frame_inRange);
+        //threshold(frame_gray, frame_inRange, 125, 255, THRESH_OTSU);
+        //imshow("frame_inRange",frame_inRange);
+        //waitKey(1000);
         int whiteblock = 0;
         for(int i = 0;i<frame_inRange.rows;i++)
         {
@@ -304,11 +310,11 @@ void chessget(Mat& frame,Rect dstrect[9],int chessmap [9])
                 }
             }
         }
-        if(blackblock>=600)
+        if(blackblock>=900)
         {
             chessmap[i]=1;//黑色是1
         }
-        else if(whiteblock>=600)
+        else if(whiteblock>=900)
         {
             chessmap[i]=2;//白色是2
         }
@@ -319,7 +325,8 @@ void chessget(Mat& frame,Rect dstrect[9],int chessmap [9])
     }
     cout << "chessmap[i]" << endl;
     for(int i = 0;i<9;i++)
-        cout << chessmap[i] << endl;
+        cout << chessmap[i] << " ";
+    cout << endl;
 }
 //获取机器坐标系对应点
 void Torealcoordinate(Point2f srcp,Point2f dstp)

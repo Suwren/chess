@@ -28,10 +28,10 @@ extern int missionFlag;//串口屏给的任务编号
 extern int missionChess;//从串口屏获得的要移动棋子的编号0-9
 extern int rect_code;//从串口屏获得的要移动到的位置编号0-8
 extern int ischessput;//从串口屏获得的人是否落子
-
-void missionStart(VideoCapture capture,int serial);
-void mission1(VideoCapture capture,int serial);
-void mission2(VideoCapture capture,int serial);
-void mission4(VideoCapture capture,int serial);
-void mission5(VideoCapture capture,int serial);
+extern int exitinput;//从串口屏获得的任务是否被终端
+void missionStart(VideoCapture capture,int serial,int tft_serial);
+void mission1(VideoCapture capture,int serial,int tft_serial);
+void mission2(VideoCapture capture,int serial,int tft_serial);
+void mission4(VideoCapture capture,int serial,int tft_serial);
+void mission5(VideoCapture capture,int serial,int tft_serial);
 #endif
